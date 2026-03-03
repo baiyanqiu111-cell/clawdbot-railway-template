@@ -54,9 +54,6 @@ RUN apt-get update \
 # `openclaw update` expects pnpm. Provide it in the runtime image.
 RUN corepack enable && corepack prepare pnpm@10.23.0 --activate
 
-RUN echo "=== SKILLS INSTALL STEP ==="
-RUN npm install -g @vercel/skills && skills --version || true
-
 # Persist user-installed tools by default by targeting the Railway volume.
 # - npm global installs -> /data/npm
 # - pnpm global installs -> /data/pnpm (binaries) + /data/pnpm-store (store)
